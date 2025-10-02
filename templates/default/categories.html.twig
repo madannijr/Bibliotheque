@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Catégories de la Bibliothèque {% endblock %}
+
+{% block body %}
+
+    <div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Catégories</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="categories">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <span>Découvrez les différentes catégories de livres :</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                {% for categorie in categories %}
+                    <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 margin">
+                        <div class="news-box">
+
+                            <h3>{{ categorie.nom }}</h3>
+                            <p>{{ categorie.description }}</p>
+                            <spam><a href="{{ path('app_livres') }}">Voir toutes les livres</a></spam>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

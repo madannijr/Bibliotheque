@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Bienvenue à la Bibliothèque</h1>
+        <p>La Bibliothèque offre une vaste collection de livres dans tous les genres. Que vous soyez un passionné de fiction, un amateur de non-fiction ou un amateur de classiques, vous trouverez ici quelque chose à lire pour vous divertir.</p>
+
+        <h2>Explorez notre bibliothèque en images</h2>
+        <div class="image-container">
+            <!-- Utilisation de la fonction random pour sélectionner une image aléatoire -->
+            <img src="{{ asset('images/imagesAccueil/1.jpg') }}" alt="Image d'accueil">
+        </div>
+
+
+    </div>
+{% endblock %}

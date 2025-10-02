@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter !{% endblock %}
+
+{% block body %}
+N
+    {% for flash_success in app.flashes('success') %}
+        <div class="alert alert-succes" role="alert">{{ flash_success }}</div>
+    {% endfor %}
+
+
+<form method="post">
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            Vous êtes connectés en tant que {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+        </div>
+    {% endif %}
+
+    <h1 class="h3 mb-3 font-weight-normal">Connectez vous svp!</h1>
+    <label for="inputEmail">Email</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+    <label for="inputPassword">Password
+    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+
+    <!-- Fonction pour afficher le mot de passe avec une icone -->
+    <div class="password-icon">
+        <span class="material-symbols-outlined eye-off">
+            visibility_off</span>
+        <span class="material-sybols-outlined eye-on">
+            visibility</span>
+
+    </div>
+
+    </label>
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+
+    <div class="checkbox mb-3">
+        <label>
+            <input type="checkbox" name="_remember_me"> Remember me
+        </label>
+    </div>
+
+    <button class="btn btn-lg btn-primary" type="submit">
+        Se connecter
+    </button>
+    <div class="mb-3 text"> Vous n'êtes pas enregistré ?
+        <a href="{{ path('app_register') }}">enregistrez-vous en cliquant ici</a>
+
+    </div>
+</form>
+{% endblock %}

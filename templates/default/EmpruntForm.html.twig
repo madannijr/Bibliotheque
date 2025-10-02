@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvel Emprunt{% endblock %}
+
+{% block body %}
+    <h1>Nouvel Emprunt</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.dateEmprunt) }}
+    {{ form_row(form.dateDeRetour) }}
+    {{ form_row(form.statut) }}
+    {{ form_row(form.livre) }}
+
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+    {{ form_end(form) }}
+    <a href="{{ path('mes_emprunts') }}" class="nav-link">Mes Emprunts</a>
+
+{% endblock %}

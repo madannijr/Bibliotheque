@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Confirmation de l'emprunt{% endblock %}
+
+{% block body %}
+    <h1>Confirmation de l'emprunt</h1>
+    <p>L'emprunt a été enregistré avec succès.
+       Vous avez un mois pour rendre le livre emprunté
+    </p>
+    <p>Vous pouvez verifier vos emprunts ici    <a href="{{ path('mes_emprunts') }}" class="nav-link">Mes Emprunts</a></p>
+
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="icon-libreoffice">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="title">
+                <spam>La Bibliothèque offre une vaste collection de livres dans tous les genres.
+                    Que vous soyez un passionné de fiction, un amateur de non-fiction ou un amateur de classiques,
+                    vous trouverez ici quelque chose à lire pour vous divertir.
+                </spam>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="product-bg">
+        <div class="product-bg-white">
+            <div class="container">
+                <div class="row">
+                    {% for livre in livres %}
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                            <div class="product-box">
+
+                                <i><img src="{{ asset( livre.getImage()) }}" alt="{{ livre.getTitre() }}"/></i>
+
+                                <h3>{{ livre.titre }}</h3>
+                                <span>{{ livre.auteur }}</span>
+                                <li>
+                                <a href="{{ path('app_reserver_livre', {'id': livre.id}) }}">Réserver</a>
+                                </li>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

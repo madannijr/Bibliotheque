@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+    <title>Bibliothèque En Ligne</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link rel="icon" href="{{ asset('image/fevicon.png') }}" type="image/gif" />
+    <link rel="stylesheet" href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/jquery.fancybox.min.css') }}" media="screen">
+    <!--[if lt IE 9]>
+<script src="{{ asset('js/html5shiv.min.js') }}"></script>
+<script src="{{ asset('js/respond.min.js') }}"></script>
+<![endif]-->
+</head>
+
+
+{% block header %}
+    {{ include('header.html.twig') }}
+
+
+{% endblock %}
+
+{% block body %}
+    <main class="container my-5">
+        <section class="slider_section">
+            <div id="main_slider" class="carousel slide banner-main" data-ride="carousel">
+
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="first-slide" src="{{ asset('image/2.jpg') }}" alt="Première diapositive">
+                        <div class="container">
+                            <div class="carousel-caption relative">
+                                <li><a href="{{ path('app_login') }}">Se Connecter</a></li>
+                                <li><a href="{{ path('app_logout') }}">Se Déconnecter</a></li>
+                                <li><a href="{{ path('admin') }}">Administrateur</a></li>
+                                <a href="#">Parcourir les Livres</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+
+                        </div>
+                    </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+                    <i class='fa fa-angle-right'></i>
+                </a>
+                <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+                    <i class='fa fa-angle-left'></i>
+                </a>
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block footer %}
+    {{ include('footer.html.twig') }}
+ {% endblock %}
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservations</title>
+</head>
+<body>
+  <h1>Mes réservations</h1>
+<ul>
+    {% for reservation in reservations %}
+        <i><img src="{{ asset( reservation.livre.getImage()) }}" alt="{{ reservation.livre.getTitre() }}"/></i>
+        <li>{{ reservation.livre.titre }} - {{ reservation.dateReservation|date('d/m/Y') }}</li>
+      <ol>
+          <p> <a href="{{ path('app_annuler_reservation', {'id': reservation.id}) }}" class="nav-link">Annuler Reservations</a></p>
+      </ol>
+    {% endfor %}
+
+ <di>
+     <ol>
+         <a href="{{ path('app_homepage') }}">Retour à la page d'accueil</a>
+     </ol>
+ </di>
+
+
+</ul>
+</body>
+</html>
+{% endblock %}
